@@ -206,16 +206,9 @@ function updateEndTimes() {
  
  
         function getStatusForBatch(batchNumber) {
-    // Generate a status based on batch number
-    // Using the same probabilities as generateRandomStatus() function
-          const randomNumber = Math.random();
-          if (randomNumber < 0.1) {
-            return 'Ins'; // 10% chance for "Ins"
-          } else if (randomNumber < 0.3) {
-              return 'Fail'; // 20% chance for "Fail"
-          } else {
-              return 'Done'; // 70% chance for "Done"
-          }
+            // Generate a status based on batch number
+            // For simplicity, let's say odd batch numbers have 'Done' status and even batch numbers have 'Fail' status
+            return batchNumber % 2 === 0 ? 'Fail' : 'Done';
         }
  
         function handleRefresh() {
